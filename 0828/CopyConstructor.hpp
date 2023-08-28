@@ -16,19 +16,35 @@ public:
     Player( std::string name_val );
     Player( std::string name_val, int health_val, int xp_val );
     std::string get_name();
-    void display_player (Player p);
-    void create_enemy();
+    int get_health();
+    int get_xp();
+    // Copy constructor
+    Player( const Player &source);
+
+    // Destructor
+    ~Player();
 };
 
-void Player::display_player( Player p ) {
-
+Player::~Player() {
+    std:: cout << "Destructor called for : " << name << std::endl;
 }
 
-void Player::create_enemy() {
-
+Player::Player( const Player &source )
+    :name{source.name},health{source.health},xp{source.xp} {
+        std::cout << "copy constructor - made copy of source of : " << source.name << std::endl;
 }
+
+
 std::string Player::get_name(){
     return name;
+}
+
+int Player::get_health() {
+    return health;
+}
+
+int Player::get_xp() {
+    return xp;
 }
 
 Player::Player()
@@ -46,6 +62,12 @@ Player::Player ( std::string name_val, int health_val, int xp_val)
         std::cout << "Three-args constructor" << std::endl;
 }
 
+
+void display_player( Player p ) {
+    std::cout << "Name " << p.get_name() << std::endl;
+    std::cout << "health " << p.get_health() << std::endl;
+    std::cout << "xp " << p.get_xp() << std::endl;
+}
 
 
 #endif // _COPYCONSTRUCTOR_H_

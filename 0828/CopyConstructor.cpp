@@ -16,15 +16,21 @@ int main() {
 
     // 1st use of copy constructor
     // local copy to the display player function
+    
     Player hero {"Hero",100,20};
-    display_player(hero);
+    //display_player(hero);
+    //Player empty;
+    //display_player(empty);
     
     // 2nd use of copy constructor
     // create and return Player object
-    Player enemy;
-    enemy = create_enemy();
+    
+    
+    //Player enemy;
+    //enemy = create_enemy();
 
     // 3rd use of copy constructor
     // create a new object from an existing object
     Player another_hero {hero};
+    display_player(another_hero);
 }
